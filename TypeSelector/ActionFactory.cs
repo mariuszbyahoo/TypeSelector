@@ -1,11 +1,16 @@
-﻿namespace TypeSelector
+﻿using System;
+
+namespace TypeSelector
 {
-    internal class ActionFactory
+    public static class ActionFactory
     {
-        public IAction GetAction(string typeName)
+        public static IAction GetAction(string typeName)
         {
             // Create new action 
-            return null;
+            Type actionType = Type.GetType(typeName);
+            var actionInstance = Activator.CreateInstance(actionType);
+            IAction action = actionInstance as IAction;
+            return action;
         }
     }
 }
