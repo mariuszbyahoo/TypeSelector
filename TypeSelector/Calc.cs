@@ -11,6 +11,7 @@ namespace TypeSelector
         private int c;
         public void DoAction()
         {
+            Console.WriteLine($"{c} = {a} + {b}");
             c = a + b;
         }
 
